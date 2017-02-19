@@ -36,12 +36,6 @@ class Level {
      
      
    }
-  
-  
-  
-  
-  
+
   
 }
-// each level has an array containing the organization of the bricks
-// the parameters are calculated based on these
