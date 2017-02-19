@@ -38,71 +38,63 @@ class Game
   // and each new level just replace the loaded array with the new one from memory.
 
 
-
-
   void calculateCollisions()
   {
+
+    float enteringLayer = 0;
     if (ball.vy < 0 )  // ball moving up
     {
-      float enteringLayer =  ball.top/20;
-      if (enteringLayer <= level.hardness.length)
-      {
-        int arrayLayer = int(enteringLayer);
-        float brickWidth = width / level.hardness[arrayLayer].length;
-        int brickLocation = int (ball.center.x / brickWidth);
-
-
-        if (level.hardness[arrayLayer][brickLocation] != 0) // testing collition calculation for top 
-        {
-          level.hardness[arrayLayer][brickLocation] -=1 ;
-        }
-      }
-    }
-    if (ball.vy > 0 )  // ball moving down
+      enteringLayer =  ball.top/20;
+    } else
     {
-      int arrayLayer =  int(ball.bottom/20);
-      if (arrayLayer < level.hardness.length)
+      enteringLayer =  ball.bottom/20;
+    }
+    if (enteringLayer <= level.hardness.length)
+    {
+      int arrayLayer = int(enteringLayer);
+      float brickWidth = width / level.hardness[arrayLayer].length;
+      int brickLocation = int (ball.center.x / brickWidth);
+
+
+      if (level.hardness[arrayLayer][brickLocation] != 0) // testing collition calculation for top 
       {
-        float brickWidth = width / level.hardness[arrayLayer].length;
-        int brickLocation = int (ball.center.x / brickWidth);
-
-
-        if (level.hardness[arrayLayer][brickLocation] != 0) // testing collition calculation for top 
+        level.hardness[arrayLayer][brickLocation] -=1 ;
+        if (ball.vy < 0 )  // ball moving up
         {
-          level.hardness[arrayLayer][brickLocation] -=1 ;
+          ball.vy = abs(ball.vy);
+        } else
+        {
+          ball.vy = - abs(ball.vy);
         }
       }
     }
-    if (ball.vx>0)                    // to solve corner problem, if you were one layer ahead (up or down
-    {                                // (depending on direction) would you colide?
-      // create funciton that decides what side & top/bottom
-      // parameters cause collition
-      int inLayer = int(ball.center.y/20);
-      if (inLayer < level.hardness.length)
+
+    // to solve corner problem, if you were one layer ahead (up or down
+    // (depending on direction) would you colide?
+    // create funciton that decides what side & top/bottom
+    // parameters cause collition
+    int inLayer = int(ball.center.y/20);
+    if (inLayer < level.hardness.length)
+    {
+      float brickWidth = width / level.hardness[inLayer].length;
+      int brickLocation = 0;
+      if (ball.vx>0) {
+        brickLocation = int (ball.right / brickWidth);
+      } else
       {
-        float brickWidth = width / level.hardness[inLayer].length;
-        int brickLocation = int (ball.right / brickWidth);
-        if (brickLocation < level.hardness[inLayer].length)
-        {
-          if (level.hardness[inLayer][brickLocation] != 0) // testing collition calculation for top 
-          {
-            level.hardness[inLayer][brickLocation] -=1 ;
-          }
-        }
+        brickLocation = int (ball.left / brickWidth);
       }
-    }
-    if (ball.vx<0)                   
-    {               
-      int inLayer = int(ball.center.y/20);
-      if (inLayer < level.hardness.length)
+      if (brickLocation < level.hardness[inLayer].length)
       {
-        float brickWidth = width / level.hardness[inLayer].length;
-        int brickLocation = int (ball.left / brickWidth);
-        if (brickLocation < level.hardness[inLayer].length)
+        if (level.hardness[inLayer][brickLocation] != 0) // testing collition calculation for top 
         {
-          if (level.hardness[inLayer][brickLocation] != 0) // testing collition calculation for top 
+          level.hardness[inLayer][brickLocation] -=1 ;
+          if (ball.vx < 0 )  // ball moving up
           {
-            level.hardness[inLayer][brickLocation] -=1 ;
+            ball.vx = abs(ball.vx);
+          } else
+          {
+            ball.vx = - abs(ball.vx);
           }
         }
       }
