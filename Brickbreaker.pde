@@ -11,11 +11,12 @@ void setup()
 
 void draw ()
 {
-  background(105);
+  background(0);
   game.ball.Draw();
   game.ball.move();
   game.ball.bounce(); // from walls
   game.level.Draw();
   game.calculateCollisions();
-
+  game.board.move();
+  game.board.Draw();
 }

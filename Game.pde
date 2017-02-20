@@ -4,27 +4,9 @@ class Game
   Ball ball;
   Level [] levels; // array of levels
   Level level; // loaded level
+  Board board;
 
   int onLevel;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // GAME CONTRUCTOR 
-
-  // ball -- construcs and sets initial location
-
-
   Game ()
   {
 
@@ -33,6 +15,7 @@ class Game
     levels = new Level [1];
     levels[0] = new Level();
     level = new Level();
+    board = new Board();
   }
   // add parameter to select which level to access -- concider only ever accesing one level
   // and each new level just replace the loaded array with the new one from memory.
