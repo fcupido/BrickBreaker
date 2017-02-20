@@ -51,8 +51,12 @@ void draw ()
     }
   }
   game.keepScore();
-  if (game.level.brickCount == 0)
+  if (game.level.brickCount == 0 && game.onLevel != game.levels.length)
   {
     game.loadNext();
+  }
+  if(game.onLevel == game.levels.length)
+  {
+    game.endGame();
   }
 }

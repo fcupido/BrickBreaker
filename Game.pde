@@ -21,10 +21,10 @@ class Game
     ball = new Ball (width / 2, height * 0.8);
     onLevel = 0;
     levels = new Level [5];
-for(int i = 0; i < levels.length; i++)
-{
-  levels [i] = new Level();
-}
+    for (int i = 0; i < levels.length; i++)
+    {
+      levels [i] = new Level();
+    }
     level = new Level();
     board = new Board();
   }
@@ -46,6 +46,23 @@ for(int i = 0; i < levels.length; i++)
     }
     lives -=1;
     game.ballIn = false;
+  }
+  void endGame()
+  {
+    fill(255);
+    textSize(40);
+    text("END", width /2 -15, height /2);
+    textSize(30);
+    text("Final Score:" + game.score, width /2 -85, height /2 + 50 );
+    text("Press SPACE to re-start", width /3 - 20, height - 200);
+    game.ballIn = false;
+    if (keyPressed && key == ' ') {
+      game  = new Game ();
+      game.timer = 0;
+      loadLevels();
+      game.level = game.levels[0];
+      game.level.brickCount = game.level.countBricks();
+    }
   }
   void showLives()
   {

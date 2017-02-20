@@ -30,14 +30,14 @@ class Level
   int countBricks()
   {
     int count = 0;
-    for(int i = 0; i < hardness.length; i++)
+    for (int i = 0; i < hardness.length; i++)
     {
-      for(int k = 0; k < hardness[i].length; k++)
+      for (int k = 0; k < hardness[i].length; k++)
       {
         count += hardness[i][k];
       }
     }
     return count;
-    
   }
+
 }
