@@ -17,12 +17,5 @@ void draw ()
   game.ball.bounce(); // from walls
   game.level.Draw();
   game.calculateCollisions();
-  
-  
 
-  
-  
-  
-  
-  
 }
