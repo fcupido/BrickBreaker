@@ -21,9 +21,9 @@ class Board
     if(keyPressed && key == CODED)
     {
       if(keyCode == RIGHT && x < width - Width /2)
-      x += 5;
+      x += 7;
             if(keyCode == LEFT && x > - Width /2)
-      x -= 5;
+      x -= 7;
     }
   }
 }
