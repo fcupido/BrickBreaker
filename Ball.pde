@@ -50,6 +50,15 @@ class Ball
     right = center.x + diameter / 2;
     left = center.x - diameter / 2;
   }
+  
+  void boardBounce()
+  {
+    float boardCenter = game.board.x + game.board.Width / 2;
+    float magnitude = sqrt (vx * vx + vy * vy);
+    vx = magnitude * sin((center.x - boardCenter)/ game.board.Width * 2);
+    vy = - magnitude * abs(cos((center.x - boardCenter)/ game.board.Width * 2));
+  }
+  
   void bounce()
   {
     if (right >= width) {
@@ -68,7 +77,7 @@ class Ball
     {
       if (center.x >= game.board.x && center.x <= game.board.x + game.board.Width)
       {
-        vy = - abs(vy);
+        boardBounce();
       }
     }
   }

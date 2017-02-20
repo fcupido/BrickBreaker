@@ -1,3 +1,14 @@
+/*
+need
+  additional levels
+  ball starts motionless
+  modifiers
+
+
+*/
+
+
+
 Game game;
 
 void setup()
