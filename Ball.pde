@@ -62,7 +62,7 @@ class Ball
       vy = abs(vy);
     }
     if (bottom >= height) {
-      game.ballIn = false;
+    game.ballOut();
     }
     if (bottom >= game.board.y - vy /2 && bottom <= game.board.y + vy / 2)
     {
