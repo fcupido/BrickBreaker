@@ -37,12 +37,12 @@ class Game
     if (lives > 1)
     {
 
-      text("Press SPACE to re-start", width /3 - 20, height - 200);
+      text("Press SPACE to re-start", width /3 - 40, height - 200);
       timer = 0;
     } else
     {
-      text("GAME OVER", width /3 + 50, height - 250);
-      text("Press SPACE to re-start", width /3 - 20, height - 200);
+      text("GAME OVER", width /3 + 58, height/2);
+      text("Press SPACE to re-start", width /3 - 20, height/2 + 100);
     }
     lives -=1;
     game.ballIn = false;
@@ -51,10 +51,10 @@ class Game
   {
     fill(255);
     textSize(40);
-    text("END", width /2 -15, height /2);
+    text("END", width /2 -25, height /2);
     textSize(30);
-    text("Final Score:" + game.score, width /2 -85, height /2 + 50 );
-    text("Press SPACE to re-start", width /3 - 20, height - 200);
+    text("Final Score:" + game.score, width /2 -90, height /2 + 50 );
+    text("Press SPACE to re-start", width /3 - 40, height - 200);
     game.ballIn = false;
     if (keyPressed && key == ' ') {
       game  = new Game ();
@@ -87,12 +87,12 @@ class Game
   {
     fill(200, 0, 0);
     textSize(40);
-    text("LEVEL COMPLETE", width / 2 - 45, height /2);
+    text("LEVEL COMPLETE", width / 3 -20 , height /2);
     textSize(28);
     fill(0, 0, 250);
     ball.vx = 0;
     ball.vy =0;
-    text("Press SPACE to start next level", width /3 - 20, height - 200);
+    text("Press SPACE to start next level", width /3 - 60, height - 200);
     if (keyPressed && key == ' ')
     {
       game.level = game.levels[onLevel];
