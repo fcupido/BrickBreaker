@@ -23,7 +23,7 @@ class Ball
     diameter = 35;
 
     center = new Point (x, y);
-    
+
     //top = y - diameter / 2;
     //bottom =  y + diameter / 2;
     //right = x + diameter / 2;
@@ -62,7 +62,14 @@ class Ball
       vy = abs(vy);
     }
     if (bottom >= height) {
-    game.ballIn = false;
+      game.ballIn = false;
+    }
+    if (bottom >= game.board.y - vy /2 && bottom <= game.board.y + vy / 2)
+    {
+      if (center.x >= game.board.x && center.x <= game.board.x + game.board.Width)
+      {
+        vy = - abs(vy);
+      }
     }
   }
 }
