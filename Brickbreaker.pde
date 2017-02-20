@@ -1,11 +1,11 @@
 /*
 need
-  additional levels
-  ball starts motionless
-  modifiers
-
-
-*/
+ additional levels
+ ball starts motionless
+ modifiers
+ 
+ 
+ */
 
 
 
@@ -15,14 +15,17 @@ void setup()
 {
   size(800, 850);
   game  = new Game ();
+  game.timer = 100;
   loadLevels();
   game.level = game.levels[0];
+  game.level.brickCount = game.level.countBricks();
+  println (game.level.brickCount);
 }
 
 
 void draw ()
 {
-  if (game.ballIn)
+  if (game.ballIn && game.level.brickCount > 0)
   {
     background(0);
     game.ball.Draw();
@@ -46,5 +49,10 @@ void draw ()
       loadLevels();
       game.level = game.levels[0];
     }
+  }
+  game.keepScore();
+  if (game.level.brickCount == 0)
+  {
+    game.loadNext();
   }
 }

@@ -1,8 +1,11 @@
 class Level 
 {
   int [][] hardness;
+  int brickCount;
   Level () {
     hardness = new int [1][1];
+    hardness [0][0] =1; 
+    brickCount = 100;
   }
 
   void Draw()
@@ -23,5 +26,18 @@ class Level
         }
       }
     }
+  }
+  int countBricks()
+  {
+    int count = 0;
+    for(int i = 0; i < hardness.length; i++)
+    {
+      for(int k = 0; k < hardness[i].length; k++)
+      {
+        count += hardness[i][k];
+      }
+    }
+    return count;
+    
   }
 }
