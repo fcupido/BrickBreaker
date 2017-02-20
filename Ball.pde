@@ -70,8 +70,8 @@ class Ball
 
     float boardCenter = game.board.x + game.board.Width / 2;
     float magnitude = sqrt (vx * vx + vy * vy);
-    vx = magnitude * sin((center.x - boardCenter)/ game.board.Width * 2);
-    vy = - magnitude * abs(cos((center.x - boardCenter)/ game.board.Width * 2));
+    vx = 1.01 * magnitude * sin((center.x - boardCenter)/ game.board.Width * 2);
+    vy = -1.01* magnitude * abs(cos((center.x - boardCenter)/ game.board.Width * 2));
   }
 
   void bounce()
@@ -90,8 +90,9 @@ class Ball
     }
     if (bottom >= game.board.y - vy /2 && bottom <= game.board.y + vy / 2)
     {
-      if (center.x >= game.board.x && center.x <= game.board.x + game.board.Width)
+      if (center.x >= game.board.x -10 && center.x <= game.board.x + game.board.Width + 10)
       {
+        center.y = game.board.y - diameter / 2;
         boardBounce();
       }
     }
