@@ -11,6 +11,8 @@ void setup()
 
 void draw ()
 {
+  if(game.ballIn)
+  {
   background(0);
   game.ball.Draw();
   game.ball.move();
@@ -19,4 +21,5 @@ void draw ()
   game.calculateCollisions();
   game.board.move();
   game.board.Draw();
+  }
 }

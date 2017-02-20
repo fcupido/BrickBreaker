@@ -29,8 +29,8 @@ class Ball
     //right = x + diameter / 2;
     //left = x - diameter / 2;
 
-    vx =10;
-    vy =10;
+    vx =7;
+    vy =7;
   }
 
   void Draw ()
@@ -62,7 +62,7 @@ class Ball
       vy = abs(vy);
     }
     if (bottom >= height) {
-      vy = - abs(vy);
+    game.ballIn = false;
     }
   }
 }

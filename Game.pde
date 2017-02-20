@@ -5,11 +5,12 @@ class Game
   Level [] levels; // array of levels
   Level level; // loaded level
   Board board;
+  boolean ballIn;
 
   int onLevel;
   Game ()
   {
-
+    ballIn = true;
     ball = new Ball (width / 2, height * 0.8);
     onLevel = 0;
     levels = new Level [1];
@@ -19,7 +20,11 @@ class Game
   }
   // add parameter to select which level to access -- concider only ever accesing one level
   // and each new level just replace the loaded array with the new one from memory.
-
+ void ballOut ()
+ {
+   
+ }
+   
 
   void calculateCollisions()
   {
