@@ -31,8 +31,8 @@ class Ball
     //right = x + diameter / 2;
     //left = x - diameter / 2;
 
-    vx =7;
-    vy =-7;
+    vx =3;
+    vy =-9.5;
   }
 
   void Draw ()
@@ -70,8 +70,8 @@ class Ball
 
     float boardCenter = game.board.x + game.board.Width / 2;
     float magnitude = sqrt (vx * vx + vy * vy);
-    vx = 1.01 * magnitude * sin((center.x - boardCenter)/ game.board.Width * 2);
-    vy = -1.01* magnitude * abs(cos((center.x - boardCenter)/ game.board.Width * 2));
+    vx = 1.005 * magnitude * sin((center.x - boardCenter)/ game.board.Width * 2);
+    vy = -1.005* magnitude * abs(cos((center.x - boardCenter)/ game.board.Width * 2));
   }
 
   void bounce()
@@ -88,7 +88,7 @@ class Ball
     if (bottom >= height) {
       game.ballOut();
     }
-    if (bottom >= game.board.y - vy /2 && bottom <= game.board.y + vy / 2)
+    if (bottom >= game.board.y - vy && bottom <= game.board.y + vy )
     {
       if (center.x >= game.board.x -10 && center.x <= game.board.x + game.board.Width + 10)
       {

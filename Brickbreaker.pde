@@ -1,25 +1,15 @@
-/*
-need
- additional levels
- ball starts motionless
- modifiers
- 
- 
- */
-
-
 
 Game game;
 
 void setup()
 {
   size(800, 850);
+  noCursor();
   game  = new Game ();
   game.timer = 100;
   loadLevels();
   game.level = game.levels[0];
   game.level.brickCount = game.level.countBricks();
-  println (game.level.brickCount);
 }
 
 
@@ -48,6 +38,7 @@ void draw ()
       game = new Game();
       loadLevels();
       game.level = game.levels[0];
+      game.level.brickCount = game.level.countBricks();
     }
   }
   game.keepScore();
@@ -55,7 +46,7 @@ void draw ()
   {
     game.loadNext();
   }
-  if(game.onLevel == game.levels.length)
+  if (game.onLevel == game.levels.length)
   {
     game.endGame();
   }

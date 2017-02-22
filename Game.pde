@@ -70,6 +70,8 @@ class Game
     fill(255);
     text("lives:" + lives, width - 90, height - 50);
     text("Score:" + score, 40, height - 50);
+    float magnitude = sqrt(game.ball.vx* game.ball.vx + game.ball.vy*game.ball.vy);
+    text("Ball Speed:" + nf(magnitude,2,2)  , width / 2 - 60, height - 50);
   }
   void keepScore()
   {
@@ -87,7 +89,7 @@ class Game
   {
     fill(200, 0, 0);
     textSize(40);
-    text("LEVEL COMPLETE", width / 3 -20 , height /2);
+    text("LEVEL COMPLETE", width / 3 -20, height /2);
     textSize(28);
     fill(0, 0, 250);
     ball.vx = 0;

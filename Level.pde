@@ -26,6 +26,14 @@ class Level
         }
       }
     }
+    if (game.ball.magnetized && game.score == 0)
+    {
+      fill(150, 150, 0);
+      textSize(20);
+      text("Use the LEFT and RIGHT arrows to move", width / 3 - 50, height /2);
+      text("Press SPACE to Lauch", width / 3 + 25, height /2 + 60);
+      text("Be fast! The ball increases speed with time! ", width / 3 - 70, height /2 +100);
+    }
   }
   int countBricks()
   {
@@ -39,5 +47,4 @@ class Level
     }
     return count;
   }
-
 }
