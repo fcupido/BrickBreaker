@@ -33,6 +33,7 @@ void draw ()
       game.ballIn = true;
       game.board = new Board();
       game.ball = new Ball (width / 2, height * 0.8);
+      game.timer = 0;
     } else
     {
       game = new Game();

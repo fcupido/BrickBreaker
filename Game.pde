@@ -58,7 +58,7 @@ class Game
     game.ballIn = false;
     if (keyPressed && key == ' ') {
       game  = new Game ();
-      game.timer = 0;
+     // game.timer = 0;
       loadLevels();
       game.level = game.levels[0];
       game.level.brickCount = game.level.countBricks();
@@ -99,7 +99,6 @@ class Game
     {
       game.level = game.levels[onLevel];
       game.level.brickCount = game.level.countBricks();
-      println (game.level.brickCount);
       game.ballIn = true;
       game.board = new Board();
       game.ball = new Ball (width / 2, height * 0.8);
