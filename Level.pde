@@ -16,10 +16,14 @@ class Level
       {
         if (hardness[y][x] == 1)
           fill(0, 200, 0);
-        if (hardness[y][x] == 3)
-          fill(200, 0, 0);
         if (hardness[y][x] == 2)
           fill(0, 0, 200);
+        if (hardness[y][x] == 3)
+          fill(200, 0, 0);
+        if (hardness[y][x] == 4)
+          fill(255, 0, 200);
+        if (hardness[y][x] == 5)
+          fill(10);
         if (hardness [y][x] != 0)
         {
           rect(width / hardness [y].length * x, 20 *y, width/ hardness [y].length, 20);

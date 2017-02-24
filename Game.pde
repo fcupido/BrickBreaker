@@ -16,7 +16,7 @@ class Game
     score = 0;
     timer =0;
     time = 1;
-    lives = 3;
+    lives = 5;
     ballIn = true;
     ball = new Ball (width / 2, height * 0.8);
     onLevel = 0;
